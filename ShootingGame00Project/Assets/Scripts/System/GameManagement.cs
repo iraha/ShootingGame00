@@ -148,7 +148,7 @@ public class GameManagement : MonoBehaviour
     {
 
         gamePauseUI.SetActive(!gamePauseUI.activeSelf);
-        healthBarBackground.SetActive(false);
+        //healthBarBackground.SetActive(false);
 
         if (gamePauseUI.activeSelf)
         {
@@ -159,7 +159,7 @@ public class GameManagement : MonoBehaviour
         {
             // gamePauseUIが表示されてなければ通常通り
             Time.timeScale = 1f;
-            healthBarBackground.SetActive(true);
+            //healthBarBackground.SetActive(true);
         }
     }
 

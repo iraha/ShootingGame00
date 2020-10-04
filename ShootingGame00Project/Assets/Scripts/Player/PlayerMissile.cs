@@ -7,7 +7,7 @@ public class PlayerMissile : MonoBehaviour
 
     [SerializeField] float speed = 20f;
 
-    public GameObject explosion;
+    //public GameObject explosion;
 
     //GameManagement gameManagement;
 
@@ -18,7 +18,7 @@ public class PlayerMissile : MonoBehaviour
         GetComponent<Rigidbody2D>().velocity = transform.up.normalized * speed;
 
         //transform.position += new Vector3(0, speed, 0) * Time.deltaTime;
-        Destroy(gameObject, 3f);
+        Destroy(gameObject, 5f);
 
     }
 
@@ -28,7 +28,7 @@ public class PlayerMissile : MonoBehaviour
         if (collision.CompareTag("Enemy") == true)
         {
             //Destroy(collision.gameObject);
-            Explosion();
+            //Explosion();
             Destroy(gameObject);
             //FindObjectOfType<GameManagement>().AddScore();
 
@@ -36,9 +36,11 @@ public class PlayerMissile : MonoBehaviour
 
     }
 
+    /*
     public void Explosion()
     {
         Instantiate(explosion, transform.position, transform.rotation);
     }
+    */
 
 }

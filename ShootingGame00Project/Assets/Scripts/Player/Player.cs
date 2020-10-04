@@ -214,7 +214,7 @@ public class Player : MonoBehaviour
             }
 
             currentHealth = currentHealth - perCollision;
-            FindObjectOfType<GameManagement>().AddScore();
+            //FindObjectOfType<GameManagement>().AddScore();
 
             healthBar.fillAmount = currentHealth / 100f;
 
@@ -224,9 +224,56 @@ public class Player : MonoBehaviour
             {
                 Handheld.Vibrate();
                 DamageExplosion();
-                //Destroy(collision.gameObject);
-                //Explosion();
+                Destroy(collision.gameObject);
                 //Debug.Log(currentHealth);
+            }
+            else if (currentHealth <= 0)
+            {
+                Handheld.Vibrate();
+                Debug.Log(currentHealth);
+                Destroy(collision.gameObject);
+                DieExplosion();
+                Destroy(gameObject);
+
+                //PlayerWin();
+                projectileObject.SetActive(false);
+
+                //FindObjectOfType<GameManagement>().GameOver();
+
+                Vector3 GoalPosition = transform.position + new Vector3(0, 0, 0) * Time.deltaTime * 2f;
+                GoalPosition = new Vector3(
+                    Mathf.Clamp(GoalPosition.x, 0, 0) * Time.deltaTime * 2f,
+                    Mathf.Clamp(GoalPosition.y, 0, 0) * Time.deltaTime * 2f,
+                    GoalPosition.z
+                );
+                transform.position = GoalPosition;
+
+            }
+
+        }
+        else if (collision.CompareTag("EnemyMissile") == true)
+        {
+            if (currentHealth > 100f)
+            {
+                currentHealth = 100f;
+                Debug.Log(currentHealth);
+            }
+
+            currentHealth = currentHealth - perCollision;
+            //Debug.Log(currentHealth);
+            //FindObjectOfType<GameManagement>().AddScore();
+
+            //healthBar.fillAmount = currentHealth / 100f;
+
+            //slider.value = currentHealth / startHealth;
+
+            if (currentHealth >= 1)
+            {
+                Handheld.Vibrate();
+                //DamageExplosion();
+                Destroy(collision.gameObject);
+                //Explosion();
+                Debug.Log(currentHealth);
             }
             else if (currentHealth <= 0)
             {
@@ -240,7 +287,7 @@ public class Player : MonoBehaviour
                 projectileObject.SetActive(false);
                 //Debug.Log("PlayerWin");
 
-                FindObjectOfType<GameManagement>().GameOver();
+                //FindObjectOfType<GameManagement>().GameOver();
 
                 Vector3 GoalPosition = transform.position + new Vector3(0, 0, 0) * Time.deltaTime * 2f;
                 GoalPosition = new Vector3(
@@ -249,19 +296,6 @@ public class Player : MonoBehaviour
                     GoalPosition.z
                 );
                 transform.position = GoalPosition;
-
-                // animation関連
-
-                if (goal == true)
-                {
-                    goalAnim.SetBool("goalAnim", true);
-                }
-
-                //goalPlayerAnim.SetBool("playerGoal", true);
-
-                //animator.SetTrigger("playerGoal");
-
-
 
             }
 

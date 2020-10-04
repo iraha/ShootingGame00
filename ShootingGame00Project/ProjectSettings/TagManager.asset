@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Enemy
   - Boss
+  - Projectile
+  - PlayerMissile
+  - EnemyMissile
+  - Recovery
   layers:
   - Default
   - TransparentFX
