@@ -16,7 +16,7 @@ public class GameManagement : MonoBehaviour
     int seconds;
 
     // GameStart関連
-    public GameObject gameStartUI;
+    //public GameObject gameStartUI;
 
     // Pause関連の関数
     public GameObject gamePauseUI;
@@ -27,9 +27,7 @@ public class GameManagement : MonoBehaviour
 
     // GameClear関連の関数
     public GameObject gameClearUI;
-    public GameObject healthBarBackground;
-
-    //public bool gameClearUI2;
+    //public GameObject healthBarBackground;
 
     // NextLevel関連
     public string nextLevel = "Level2";
@@ -40,23 +38,23 @@ public class GameManagement : MonoBehaviour
     BoxCollider2D boxCollider2D;
 
     // Recoveryと
-    public GameObject Recovery;
-    public GameObject WeaponUp;
+    //public GameObject Recovery;
+    //public GameObject WeaponUp;
 
     // Enemy関連
-    public GameObject Enemy0;
-    public GameObject Enemy1;
+    //public GameObject Enemy0;
+    //public GameObject Enemy1;
 
     // Meteorite
-    public GameObject Meteorite1;
-    public GameObject Meteorite2;
+    //public GameObject Meteorite1;
+    //public GameObject Meteorite2;
 
     // Boss関連
-    public GameObject Boss;
+    //public GameObject Boss;
 
     // BGM関連
-    private AudioSource audioSource;
-    public AudioClip BGM;
+    //private AudioSource audioSource;
+    //public AudioClip BGM;
 
     //public SceneFader sceneFader;
 
@@ -64,28 +62,27 @@ public class GameManagement : MonoBehaviour
     // Start is called before the first frame update 
     void Start()
     {
-        Time.timeScale = 0f;
-
+    
         // UI関連
-        scoreText.text = "SCORE: " + gameScore;
-        audioSource = GetComponent<AudioSource>();
-        audioSource.clip = BGM;
-        audioSource.Play();
-        pauseButton.SetActive(false);
-        healthBarBackground.SetActive(false);
+        //scoreText.text = "SCORE: " + gameScore;
+        //audioSource = GetComponent<AudioSource>();
+        //audioSource.clip = BGM;
+        //audioSource.Play();
+        //pauseButton.SetActive(false);
+        //healthBarBackground.SetActive(false);
 
         // オブジェクト関連
         boxCollider2D = Player.GetComponent<BoxCollider2D>();
         boxCollider2D.enabled = true;
         Player.SetActive(true);
-        Recovery.SetActive(true);
-        WeaponUp.SetActive(true);
+        //Recovery.SetActive(true);
+        //WeaponUp.SetActive(true);
 
-        Enemy0.SetActive(true);
-        Enemy1.SetActive(true);
-        Meteorite1.SetActive(true);
-        Meteorite2.SetActive(true);
-        Boss.SetActive(true);
+        //Enemy0.SetActive(true);
+        //Enemy1.SetActive(true);
+        //Meteorite1.SetActive(true);
+        //Meteorite2.SetActive(true);
+        //Boss.SetActive(true);
 
         //nextLevel = SceneManager.GetActiveScene().buildIndex + 1;
 
@@ -124,6 +121,7 @@ public class GameManagement : MonoBehaviour
         }
     }
 
+    /*
     public void GameStartUI()
     {
 
@@ -143,6 +141,7 @@ public class GameManagement : MonoBehaviour
             healthBarBackground.SetActive(true);
         }
     }
+    */
 
     public void GamePause()
     {
@@ -168,20 +167,20 @@ public class GameManagement : MonoBehaviour
         // UI関連
         gameOverUI.SetActive(true);
         pauseButton.SetActive(false);
-        healthBarBackground.SetActive(false);
+        //healthBarBackground.SetActive(false);
 
         // Player関連
-        Recovery.SetActive(false);
-        WeaponUp.SetActive(false);
+        //Recovery.SetActive(false);
+        //WeaponUp.SetActive(false);
 
         // Enemy関連
-        Enemy0.SetActive(false);
-        Enemy1.SetActive(false);
-        Boss.SetActive(false);
-        Meteorite1.SetActive(false);
-        Meteorite2.SetActive(false);
+        //Enemy0.SetActive(false);
+        //Enemy1.SetActive(false);
+        //Boss.SetActive(false);
+        //Meteorite1.SetActive(false);
+        //Meteorite2.SetActive(false);
 
-        audioSource.Stop();
+        //audioSource.Stop();
 
         if (gameOverUI.activeSelf)
         {
@@ -196,33 +195,33 @@ public class GameManagement : MonoBehaviour
 
     public void GameClear()
     {
-        gameTime += Time.deltaTime;
-        seconds = (int)gameTime;
-        timerText.text = seconds.ToString();
+        //gameTime += Time.deltaTime;
+        //seconds = (int)gameTime;
+        //timerText.text = seconds.ToString();
 
         gameClearUI.SetActive(true);
         gameOverUI.SetActive(false);
         pauseButton.SetActive(false);
-        healthBarBackground.SetActive(false);
+        //healthBarBackground.SetActive(false);
 
 
         // Player関連
-        //Player.SetActive(false);
+        Player.SetActive(false);
         boxCollider2D = Player.GetComponent<BoxCollider2D>();
         boxCollider2D.enabled = false;
-        Recovery.SetActive(false);
-        WeaponUp.SetActive(false);
+        //Recovery.SetActive(false);
+        //WeaponUp.SetActive(false);
 
         // Enemy関連
-        Enemy0.SetActive(false);
-        Enemy1.SetActive(false);
-        Boss.SetActive(false);
-        Meteorite1.SetActive(false);
-        Meteorite2.SetActive(false);
+        //Enemy0.SetActive(false);
+        //Enemy1.SetActive(false);
+        //Boss.SetActive(false);
+        //Meteorite1.SetActive(false);
+        //Meteorite2.SetActive(false);
 
         //FindObjectOfType<Player>().PlayerWin();
 
-        audioSource.Stop();
+        //audioSource.Stop();
 
         if (gameClearUI.activeSelf)
         {

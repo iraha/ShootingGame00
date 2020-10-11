@@ -53,8 +53,8 @@ public class Boss : MonoBehaviour
             {
                 // Boss の体力が0になると爆発する
                 Debug.Log(currentHealth);
-                Destroy(collision.gameObject);
-                Destroy(gameObject);
+                //Destroy(collision.gameObject);
+                //Destroy(gameObject);
                 DieExplosion();
 
                 FindObjectOfType<GameManagement>().GameClear();
@@ -69,7 +69,7 @@ public class Boss : MonoBehaviour
         {
 
             currentHealth = currentHealth - perCollision;
-            //healthBar.fillAmount = currentHealth / 1000f;
+            healthBar.fillAmount = currentHealth / 1000f;
 
             if (currentHealth >= 1)
             {
@@ -86,7 +86,7 @@ public class Boss : MonoBehaviour
                 Destroy(gameObject);
                 DieExplosion();
 
-                //FindObjectOfType<GameManagement>().GameClear();
+                FindObjectOfType<GameManagement>().GameClear();
             }
 
         }

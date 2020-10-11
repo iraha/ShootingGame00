@@ -9,11 +9,14 @@ public class GuusuuDan : MonoBehaviour
     public float shotSpeed = 6.0f;
 
     int count = 0;
+    public int hindo = 60;
 
     public GameObject player;
     // Use this for initialization
     void Start()
     {
+
+        player = GameObject.Find("Player");
 
     }
 
@@ -26,7 +29,7 @@ public class GuusuuDan : MonoBehaviour
         count++;
         if (player == true)
         {
-            if (count % 60 == 0)
+            if (count % hindo == 0)
             {
                 for (int i = 0; i < wayNum; i++)
                 {

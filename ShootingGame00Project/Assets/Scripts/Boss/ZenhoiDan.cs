@@ -9,6 +9,7 @@ public class ZenhoiDan : MonoBehaviour
     public GameObject zenhoiDan;
     public float shotSpeed = 7.0f;
     int count = 0;
+    public int hindo = 50;
 
     // Use this for initialization
     void Start()
@@ -22,7 +23,7 @@ public class ZenhoiDan : MonoBehaviour
 
         if (player == true)
         {
-            if (count % 50 == 0)
+            if (count % hindo == 0)
             {
                 for (int i = 0; i < 16; i++)
                 {

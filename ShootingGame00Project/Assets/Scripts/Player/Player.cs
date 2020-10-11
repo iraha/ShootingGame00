@@ -224,7 +224,7 @@ public class Player : MonoBehaviour
             {
                 Handheld.Vibrate();
                 DamageExplosion();
-                Destroy(collision.gameObject);
+                //Destroy(collision.gameObject);
                 //Debug.Log(currentHealth);
             }
             else if (currentHealth <= 0)
@@ -263,15 +263,13 @@ public class Player : MonoBehaviour
             //Debug.Log(currentHealth);
             //FindObjectOfType<GameManagement>().AddScore();
 
-            //healthBar.fillAmount = currentHealth / 100f;
-
-            //slider.value = currentHealth / startHealth;
-
+            healthBar.fillAmount = currentHealth / 100f;
+            
             if (currentHealth >= 1)
             {
                 Handheld.Vibrate();
                 //DamageExplosion();
-                Destroy(collision.gameObject);
+                //Destroy(collision.gameObject);
                 //Explosion();
                 Debug.Log(currentHealth);
             }
@@ -287,7 +285,7 @@ public class Player : MonoBehaviour
                 projectileObject.SetActive(false);
                 //Debug.Log("PlayerWin");
 
-                //FindObjectOfType<GameManagement>().GameOver();
+                FindObjectOfType<GameManagement>().GameOver();
 
                 Vector3 GoalPosition = transform.position + new Vector3(0, 0, 0) * Time.deltaTime * 2f;
                 GoalPosition = new Vector3(

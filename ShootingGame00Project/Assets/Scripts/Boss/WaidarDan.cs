@@ -9,6 +9,8 @@ public class WaidarDan : MonoBehaviour
     int count = 0;
 
     public float shotSpeed = 10.0f;
+
+    public int hindo = 15;
     // Use this for initialization
     void Start()
     {
@@ -18,7 +20,7 @@ public class WaidarDan : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (count % 10 == 0)
+        if (count % hindo == 0)
         {
             for (int i = 0; i < 12; i++)
             {

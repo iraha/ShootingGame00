@@ -50,8 +50,6 @@ public class LevelSelect: MonoBehaviour
         LoadingUI.SetActive(true);
     }
 
-    
-
 
 
 }
